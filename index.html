@@ -494,6 +494,57 @@
             height: auto;
         }
 
+        /* ROI */
+        .roi-box {
+            background: var(--bg-alt);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 32px;
+        }
+
+        .roi-box h3 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .roi-item {
+            text-align: center;
+        }
+
+        .roi-number {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 32px;
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .roi-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .roi-note {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+
+        .roi-note strong {
+            color: var(--text);
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .hero {
@@ -518,6 +569,11 @@
 
             .cta-secondary {
                 margin-left: 0;
+            }
+
+            .roi-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
             }
         }
     </style>
@@ -554,7 +610,7 @@
 
                     <p class="highlight">Ez nem a fejlesztői csapat lecserélése. Ez a kapacitásuk megsokszorozása. Ugyanazok az emberek, 20-50% több eredmény.</p>
 
-                    <p>A kérdés nem az, hogy ez megtörténik-e. A kérdés az, hogy <strong>egy cég mikor lép</strong>.</p>
+                    <p>A BigGeorge saját terméket épít — a fejlesztési sebesség itt közvetlenül üzleti előny. Aki gyorsabban szállít, az gyorsabban iterál a piacon. <strong>A kérdés nem az, hogy ez megtörténik-e. A kérdés az, hogy mikor léptek.</strong></p>
                 </div>
             </div>
         </section>
@@ -659,6 +715,34 @@
                         <h4>AI-ban jártas csapat</h4>
                         <p>Akik képesek házon belül továbbvinni a tanultakat</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Üzleti érték</h2>
+                <div class="roi-box">
+                    <h3>Megtérülés — konzervatív becslés</h3>
+                    <div class="roi-grid">
+                        <div class="roi-item">
+                            <div class="roi-number">~2 hónap</div>
+                            <div class="roi-label">alatt megtérül<br>a teljes program</div>
+                        </div>
+                        <div class="roi-item">
+                            <div class="roi-number">~3M Ft</div>
+                            <div class="roi-label">havonta felszabadított<br>kapacitás értéke</div>
+                        </div>
+                        <div class="roi-item">
+                            <div class="roi-number">~36M Ft</div>
+                            <div class="roi-label">éves szinten<br>megtakarítás</div>
+                        </div>
+                    </div>
+                    <p class="roi-note">
+                        <strong>Számítás:</strong> 8-10 fejlesztő, konzervatív 20%-os hatékonyságnövekedéssel &rarr; ~2 FTE-nek megfelelő kapacitás szabadul fel.
+                        Átlagos fejlesztői költséggel (~1,5M Ft/hó) ez havi ~3M Ft értékű megtakarítás.
+                        A program 5,1M Ft-os költsége <strong>kevesebb mint 2 hónap alatt térül meg</strong> — utána tiszta nyereség.
+                    </p>
                 </div>
             </div>
         </section>
