@@ -7,6 +7,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+    (function(){
+        var k='bg_access',s=sessionStorage.getItem(k);
+        if(s==='1')return;
+        var c=prompt('Hozzáférési kód:');
+        if(c==='1337bg'){sessionStorage.setItem(k,'1');return;}
+        document.documentElement.innerHTML='<body style="font-family:Inter,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#FAF9F7;color:#666"><p>Hibás kód.</p></body>';
+    })();
+    </script>
     <style>
         :root {
             --bg: #FAF9F7;
