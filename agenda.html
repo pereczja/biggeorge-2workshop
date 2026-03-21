@@ -9,11 +9,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script>
     (function(){
-        var k='bg_access',s=sessionStorage.getItem(k);
-        if(s==='1')return;
-        var c=prompt('Hozzáférési kód:');
-        if(c==='1337bg'){sessionStorage.setItem(k,'1');return;}
-        document.documentElement.innerHTML='<body style="font-family:Inter,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;background:#FAF9F7;color:#666"><p>Hibás kód.</p></body>';
+        if(sessionStorage.getItem('bg_access')==='1')return;
+        document.addEventListener('DOMContentLoaded',function(){
+            document.body.style.overflow='hidden';
+            var o=document.createElement('div');o.id='gate';
+            o.innerHTML='<div style="position:fixed;inset:0;background:#FAF9F7;z-index:9999;display:flex;align-items:center;justify-content:center">'
+            +'<div style="text-align:center;max-width:360px;padding:24px">'
+            +'<div style="font-family:Instrument Serif,Georgia,serif;font-size:32px;margin-bottom:8px;letter-spacing:-0.02em">1337</div>'
+            +'<p style="font-size:14px;color:#666;margin-bottom:32px">Ez a dokumentum védett. Kérjük, adja meg a hozzáférési kódot.</p>'
+            +'<input id="gate-input" type="password" placeholder="Hozzáférési kód" autocomplete="off" style="width:100%;padding:14px 16px;border:1px solid #e5e3df;border-radius:8px;font-size:15px;font-family:Inter,sans-serif;background:#fff;outline:none;text-align:center;letter-spacing:2px;transition:border-color 0.2s">'
+            +'<p id="gate-error" style="font-size:13px;color:#ef4444;margin-top:12px;opacity:0;transition:opacity 0.2s">Hibás kód</p>'
+            +'</div></div>';
+            document.body.appendChild(o);
+            var inp=document.getElementById('gate-input'),err=document.getElementById('gate-error');
+            inp.focus();
+            inp.addEventListener('focus',function(){inp.style.borderColor='#1a1a1a'});
+            inp.addEventListener('blur',function(){inp.style.borderColor='#e5e3df'});
+            inp.addEventListener('keydown',function(e){
+                if(e.key==='Enter'){
+                    if(inp.value==='1337bg'){
+                        sessionStorage.setItem('bg_access','1');
+                        o.style.opacity='0';o.style.transition='opacity 0.3s';
+                        setTimeout(function(){o.remove();document.body.style.overflow=''},300);
+                    } else {
+                        err.style.opacity='1';inp.style.borderColor='#ef4444';inp.value='';
+                        setTimeout(function(){err.style.opacity='0';inp.style.borderColor='#e5e3df'},2000);
+                    }
+                }
+            });
+        });
     })();
     </script>
     <style>
